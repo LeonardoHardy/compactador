@@ -1,0 +1,8 @@
+Este é um arquivo de teste para verificar as novas medidas de segurança do sistema.
+Inclui alguns caracteres especiais: !@#$%^&*()
+E algumas linhas extras para ter um tamanho razoável.
+Linha 1
+Linha 2
+Linha 3
+Linha 4
+Linha 5 
