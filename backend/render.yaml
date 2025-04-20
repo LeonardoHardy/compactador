@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: compactador-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT --root-path /api
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.12
+      - key: API_KEY
+        value: compactador_api_key_f7d8e9a3b2c1
+      - key: FRONTEND_URL
+        value: https://compactador-leonardohardy.vercel.app
+      - key: ROOT_PATH
+        value: /api 

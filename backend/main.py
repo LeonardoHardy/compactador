@@ -17,13 +17,14 @@ from middleware import RateLimitMiddleware, SecurityHeadersMiddleware, FileValid
 import secrets
 
 # Lista global de API Keys (em produção, use um banco de dados)
-API_KEYS = {"dev_key"}  # Adicionando a chave de desenvolvimento
+API_KEYS = {os.getenv("API_KEY", "dev_key")}  # Usando a API_KEY do ambiente
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
-    docs_url="/api/docs",
-    redoc_url="/api/redoc",
-    openapi_url="/api/openapi.json"
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_url="/openapi.json",
+    root_path=os.getenv("ROOT_PATH", "")
 )
 
 # Configuração CORS
@@ -52,10 +53,11 @@ async def root():
         "version": "1.0.0",
         "description": "API para compactação de arquivos",
         "endpoints": {
-            "docs": "/api/docs",
+            "docs": "/docs",
             "upload": "/upload/",
             "download": "/download/{filename}"
-        }
+        },
+        "status": "online"
     }
 
 # Configuração de logs
