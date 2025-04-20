@@ -45,8 +45,9 @@ settings.UPLOAD_DIR.mkdir(exist_ok=True)
 settings.COMPRESSED_DIR.mkdir(exist_ok=True)
 settings.LOG_DIR.mkdir(exist_ok=True)
 
-# Rota raiz
+# Rota raiz que aceita GET e HEAD
 @app.get("/")
+@app.head("/")
 async def root():
     return {
         "name": settings.PROJECT_NAME,

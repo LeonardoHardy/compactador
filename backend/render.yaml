@@ -12,4 +12,14 @@ services:
       - key: FRONTEND_URL
         value: https://compactador-leonardohardy.vercel.app
       - key: ROOT_PATH
-        value: /api 
+        value: /api
+    headers:
+      - path: /*
+        name: Access-Control-Allow-Origin
+        value: "*"
+      - path: /*
+        name: Access-Control-Allow-Methods
+        value: "GET, POST, HEAD, OPTIONS"
+      - path: /*
+        name: Access-Control-Allow-Headers
+        value: "*" 
