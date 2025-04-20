@@ -44,6 +44,20 @@ settings.UPLOAD_DIR.mkdir(exist_ok=True)
 settings.COMPRESSED_DIR.mkdir(exist_ok=True)
 settings.LOG_DIR.mkdir(exist_ok=True)
 
+# Rota raiz
+@app.get("/")
+async def root():
+    return {
+        "name": settings.PROJECT_NAME,
+        "version": "1.0.0",
+        "description": "API para compactação de arquivos",
+        "endpoints": {
+            "docs": "/api/docs",
+            "upload": "/upload/",
+            "download": "/download/{filename}"
+        }
+    }
+
 # Configuração de logs
 logger.add(
     settings.LOG_DIR / "error.log",
